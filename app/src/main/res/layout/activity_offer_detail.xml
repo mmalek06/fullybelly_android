@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dataContext"
+            type="com.fullybelly.viewModels.activities.OfferDetailsViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.fullybelly.views.activities.OfferDetailActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{dataContext.overlayLoader ? View.GONE : View.VISIBLE}">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.fullybelly.views.fragments.offerDetailActivity.OfferDetailFragment"
+                android:tag="fragment_offer_detail"
+                android:layout_above="@+id/fragmentBottomToolbar"
+                tools:layout="@layout/fragment_offer_detail"
+                class="com.fullybelly.views.fragments.offerDetailActivity.OfferDetailFragment" />
+
+            <FrameLayout
+                android:id="@+id/fragmentBottomToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+
+                <fragment
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:name="com.fullybelly.views.fragments.common.ToolbarFragment"
+                    tools:layout="@layout/fragment_toolbar"
+                    class="com.fullybelly.views.fragments.common.ToolbarFragment" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{dataContext.overlayLoader ? View.VISIBLE : View.GONE}">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.fullybelly.views.fragments.common.LoaderFragment"
+                android:tag="fragment_loader_overlay"
+                tools:layout="@layout/fragment_loader"
+                class="com.fullybelly.views.fragments.common.LoaderFragment" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:background="@color/colorPrimaryDark"
+            android:visibility="@{dataContext.transparentLoader ? View.VISIBLE : View.GONE}">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.fullybelly.views.fragments.common.LoaderFragment"
+                android:tag="fragment_loader_transparent"
+                tools:layout="@layout/fragment_loader"
+                class="com.fullybelly.views.fragments.common.LoaderFragment" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</layout>

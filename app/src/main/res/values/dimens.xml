@@ -1,0 +1,35 @@
+<resources>
+    <!-- general dimensions -->
+    <dimen name="smallMargin">8dp</dimen>
+    <dimen name="defaultMargin">16dp</dimen>
+    <dimen name="defaultBigMargin">22dp</dimen>
+    <dimen name="editTextsBottomPadding">16dp</dimen>
+    <dimen name="editTextHeight">50dp</dimen>
+    <dimen name="editTextsLeftRightPadding">16dp</dimen>
+    <dimen name="buttonsLeftRightPadding">16dp</dimen>
+    <dimen name="buttonImgTxtSpacing">4dp</dimen>
+    <dimen name="searcherButtonHeight">44dp</dimen>
+    <dimen name="buttonsCornersRadius">10dp</dimen>
+    <dimen name="submitButtonsMarginLeftRight">26dp</dimen>
+    <dimen name="submitButtonsMarginTopBottom">14dp</dimen>
+
+    <!-- list view -->
+    <dimen name="searcherButtonsMargins">6dp</dimen>
+    <dimen name="searcherDistanceMarginTop">32dp</dimen>
+    <dimen name="searcherLogoWidth">88dp</dimen>
+    <dimen name="searcherLogoHeight">88dp</dimen>
+
+    <!-- detail view -->
+    <dimen name="detailViewNameMargin">22dp</dimen>
+    <dimen name="detailLogoWidth">70dp</dimen>
+    <dimen name="detailLogoHeight">70dp</dimen>
+
+    <!-- API level specific dimensions -->
+    <dimen name="buttonImgTxtSpacingV16">40dp</dimen>
+    <dimen name="searcherVerticalSpacing">34dp</dimen>
+    <dimen name="offersListItemSpacing">4dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

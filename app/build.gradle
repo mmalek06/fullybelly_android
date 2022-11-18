@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+
+    dexOptions {
+        jumboMode = true
+    }
+    defaultConfig {
+        applicationId "com.fullybelly"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 10
+        versionName "1.0.0.10"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    lintOptions {
+        abortOnError false
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':p24lib')
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    compile('com.paypal.sdk:paypal-android-sdk:2.15.3') {
+        exclude group: 'io.card'
+    }
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'javax.inject:javax.inject:1@jar'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:support-v4:25.2.0'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:gridlayout-v7:25.2.0'
+    compile 'com.google.android.gms:play-services-maps:10.2.0'
+    compile 'com.google.android.gms:play-services-location:10.2.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.+'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.google.dagger:dagger:2.8'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
+}

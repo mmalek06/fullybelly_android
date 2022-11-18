@@ -1,0 +1,144 @@
+<resources>
+
+    <!-- config strings -->
+    <string name="fbAppId" translatable="false">882076488559321</string>
+    <string name="settingsKey" translatable="false">com.fullybelly.settings</string>
+    <string name="settingsEmailAddress" translatable="false">com.fullybelly.settings.emailAddress</string>
+    <string name="settingsFavRestaurants" translatable="false">com.fullybelly.settings.favRestaurants</string>
+    <string name="searcherSettingsPhrase" translatable="false">com.fullybelly.searcher.settings.phrase</string>
+    <string name="searcherSettingsFavorites" translatable="false">com.fullybelly.searcher.settings.favorites</string>
+    <string name="searcherSettingsAvailable" translatable="false">com.fullybelly.searcher.settings.available</string>
+    <string name="searcherSettingsCheapest" translatable="false">com.fullybelly.searcher.settings.cheapest</string>
+    <string name="searcherSettingsClosest" translatable="false">com.fullybelly.searcher.settings.closest</string>
+    <string name="searcherSettingsPickup" translatable="false">com.fullybelly.searcher.settings.pickup</string>
+    <string name="searcherSettingsForceSearch" translatable="false">com.fullybelly.searcher.settings.forceSearch</string>
+    <string name="settingsBookedSessions" translatable="false">com.fullybelly.settings.bookedSessions</string>
+    <string name="settingsPaymentMethodP24CC" translatable="false">com.fullybelly.settings.paymentMethodP24CC</string>
+    <string name="settingsPaymentMethodP24BT" translatable="false">com.fullybelly.settings.paymentMethodP24BT</string>
+    <string name="settingsSessionsToCheck" translatable="false">com.fullybelly.settings.sessions.toCheck</string>
+    <string name="settingsTermsAndConditionsId" translatable="false">com.fullybelly.settings.termsAndConditionsId</string>
+    <string name="settingsTermsAndConditionsText" translatable="false">com.fullybelly.settings.termsAndConditionsText</string>
+    <string name="settingsImpressumText" translatable="false">com.fullybelly.settings.impressumText</string>
+    <string name="settingsTermsAndConditionsAcceptedFlag" translatable="false">com.fullybelly.settings.termsAndConditionsAcceptedFlag</string>
+    <string name="settingsOrderSeenFlag" translatable="false">com.fullybelly.settings.orderSeenFlag</string>
+    <string name="settingsOrderPendingFlag" translatable="false">com.fullybelly.settings.orderPendingFlag</string>
+    <string name="settingsBookedOrder" translatable="false">com.fullybelly.settings.bookedOrder</string>
+    <string name="geoKey" translatable="false">AIzaSyAMALXfwFpaPzvlWPv_XqnD2bYz_AYYwPs</string>
+    <string name="userSawIntroKey" translatable="false">com.fullybelly.settings.sawIntro</string>
+
+    <!-- other strings -->
+    <string name="acceptTermsPrompt">You have to accept our terms and conditions before proceeding further.</string>
+    <string name="addedToFavorites">The restaurant has been added to the favourites.</string>
+    <string name="addPermissionsAndTryAgain">Please add required permissions and try again.</string>
+    <string name="address">Address</string>
+    <string name="addressNull">Please enter a valid address.</string>
+    <string name="addressNullExplanation">If you did, then please double check if you have the internet enabled.</string>
+    <string name="advancedSearchText">+ more</string>
+    <string name="anyDistance">Any distance</string>
+    <string name="apartmentNumber">Apartment no.</string>
+    <string name="app_name">FullyBelly</string>
+    <string name="away">away</string>
+    <string name="availableButtonText">only available</string>
+    <string name="availableDishesText">Available dishes:</string>
+    <string name="availableText">available:</string>
+    <string name="availableTomorrow">Available tomorrow</string>
+    <string name="buttonBuyText">buy</string>
+    <string name="buttonNextStep">next step</string>
+    <string name="cancelButtonText">Cancel</string>
+    <string name="canEatOnSite">Possibility to eat at the restaurant</string>
+    <string name="cheapestButtonText">the cheapest</string>
+    <string name="chooseAmount">choose amount</string>
+    <string name="city">City</string>
+    <string name="closestButtonText">the closest</string>
+    <string name="choosePaymentMethod">Choose payment method</string>
+    <string name="chosenPaymentMethod">Chosen payment method</string>
+    <string name="countryUnknown">Unknown country. Insert a SIM card into your cellphone or login to a WiFi network.</string>
+    <string name="description">Description</string>
+    <string name="dishUnit">meals</string>
+    <string name="distance">Distance:</string>
+    <string name="emailAddress">email address</string>
+    <string name="emailInvalidValidation">Given email address is invalid.</string>
+    <string name="enterEmailAddress">please enter your email address</string>
+    <string name="favButtonText">the favourites</string>
+    <string name="fbLoginError">Error occurred during Facebook login process</string>
+    <string name="from">from</string>
+    <string name="genericError">Something went wrong</string>
+    <string name="hideShowButtonHideText">hide</string>
+    <string name="hideShowButtonShowText">search</string>
+    <string name="houseNumber">House no.</string>
+    <string name="internet2">internet</string>
+    <string name="loadingOngoing">loading</string>
+    <string name="location">location</string>
+    <string name="location2">location</string>
+    <string name="locationDown">Please turn on your location.</string>
+    <string name="locationDownExplanation">In order for the FullyBelly application to work properly, you have to turn on your location. You can still find restaurants using the search bar, though we may not show you relevant results.</string>
+    <string name="logOut">Logout</string>
+    <string name="memory">writing to device\'s memory</string>
+    <string name="noAddressInfo">Given address could not be found.</string>
+    <string name="noLocationProviderAvailable">Failed to read location data.</string>
+    <string name="noOfferExplanation">It\'s possible it was already booked by someone else.</string>
+    <string name="noOfferInfo">Given offer could not be found.</string>
+    <string name="noRestaurantDetailsInfo">This restaurant could not be found at this time.</string>
+    <string name="noRestaurantsInfo">No restaurants could be found at this time.</string>
+    <string name="notificationAcceptText">Accept</string>
+    <string name="notificationDeclineText">Decline</string>
+    <string name="notificationScrollDownText">down</string>
+    <string name="offerDescription">Offer description</string>
+    <string name="orderBookingFailed">There was an error while processing your order.</string>
+    <string name="ordersDescription">Below there is a list of your current paid-for orders. They will disappear after the restaurant marks a given order as taken or after 24h have passed.</string>
+    <string name="ordersListDishesAmount">Dishes amount:</string>
+    <string name="ordersListPickup">Pickup time:</string>
+    <string name="ordersListNumber">Order number:</string>
+    <string name="ordersListNoOrders">Currently there are no orders</string>
+    <string name="paymentCancelled">If the system will manage to validate it successfully, you will receive an email message with the purchase order number (which will be required on pickup) on the email address given in the process of order making. You can also check your order status in the application.</string>
+    <string name="paymentMethodRequired">please select payment method</string>
+    <string name="paymentOk">We will send you the purchase order number (which will be required on delivery) to the email address given in the process of order making after we receive your payment. You can also check your order status in the application.</string>
+    <string name="paymentPreparationError">Payment service error occurred</string>
+    <string name="paymentPreparationErrorDescription">Please, try again later.</string>
+    <string name="paymentValidationReasurrance">Your account has not been charged</string>
+    <string name="payWithBankTransfer">pay with bank transfer</string>
+    <string name="payWithCreditCard">pay with credit card</string>
+    <string name="permissionsDenied">Some permissions were denied.</string>
+    <string name="permissionsExplanation">In order to use this application you need to grant access to</string>
+    <string name="pickupTimeButtonText">pickup time</string>
+    <string name="pickupTimesText">pickup:</string>
+    <string name="pickupTimesTextLong">pickup time:</string>
+    <string name="price">Price:</string>
+    <string name="providerUnavailable">In order to use this application you have to allow it to use the internet.</string>
+    <string name="providerUnavailableExplanation">FullyBelly is not able to read your location without one of those providers available.</string>
+    <string name="purchaseForbidden">We are sorry, but this restaurant is not selling its offers in your region.</string>
+    <string name="purchaseForbiddenOfferTomorrow">This offer will be available for purchase tomorrow.</string>
+    <string name="putRestaurantComment">Post a comment for this offer:</string>
+    <string name="rememberChoice">remember my choice for future purchases</string>
+    <string name="removedFromFavorites">The restaurant has been removed from the favourites.</string>
+    <string name="restaurantBackgroundImage">offer background image</string>
+    <string name="restaurantLogo">offer logo</string>
+    <string name="termsOfUse">Terms and Conditions</string>
+    <string name="transactionAbandoned">You had left the transaction panel before we managed to validate your payment.</string>
+    <string name="transactionRejected">Transaction rejected</string>
+    <string name="transactionRejectedExplanation">Your transaction was rejected by the payment provider. Your account has not been billed.</string>
+    <string name="transactionSuccess">Your transaction was finished successfully.</string>
+    <string name="transactionUnfinished">Your account will not be charged, as your order was not completed.</string>
+    <string name="transferTitle">Meal purchase</string>
+    <string name="tryAgainLater">Please try again later.</string>
+    <string name="tryDifferentCriteria">Please try again with different search criteria.</string>
+    <string name="save">save</string>
+    <string name="saveYourAccountSettings">save the account settings</string>
+    <string name="searchCommand">Search</string>
+    <string name="searchButtonText">search</string>
+    <string name="searcherBackgroundImage">searcher background image</string>
+    <string name="searcherDistance">distance</string>
+    <string name="searchTerm">Restaurant name or address</string>
+    <string name="searchTermShort">Search</string>
+    <string name="settingsSaved">User settings have been saved.</string>
+    <string name="settingsYourEmail">Your email</string>
+    <string name="simpleSearchText">- less</string>
+    <string name="street">Street</string>
+    <string name="until">until</string>
+    <string name="useAsGuest">Use as a guest</string>
+    <string name="useAsRestaurant">Use as a restaurant</string>
+    <string name="yourSettings">Your account settings</string>
+    <string name="yourOrders">Your orders</string>
+    <string name="title_activity_intro">IntroActivity</string>
+
+</resources>

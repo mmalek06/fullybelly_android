@@ -1,0 +1,6 @@
+<resources>
+
+    <dimen name="editTextsLeftRightPadding">14dp</dimen>
+    <dimen name="buttonsLeftRightPadding">14dp</dimen>
+
+</resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="parent"
+            type="com.fullybelly.views.activities.LoginActivity" />
+
+        <variable
+            name="dataContext"
+            type="com.fullybelly.viewModels.activities.LoginViewModel" />
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fullscreen_bg"
+        tools:context="com.fullybelly.views.activities.LoginActivity">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/logo_big" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/useAsGuest"
+            android:padding="15dp"
+            android:layout_marginTop="210dp"
+            android:onClick="@{() -> dataContext.guestLogin()}"
+            android:background="@drawable/button_guest_login"
+            style="@style/Widget.App.TextViewLogin" />
+
+        <TextView
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/useAsRestaurant"
+            android:padding="15dp"
+            android:layout_marginTop="280dp"
+            android:onClick="@{() -> dataContext.restaurantLogin()}"
+            android:background="@drawable/button_border_dark"
+            style="@style/Widget.App.TextViewLogin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="340dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/termsOfUse"
+            android:visibility="@{dataContext.showImpressum ? View.GONE : View.VISIBLE}"
+            android:onClick="@{() -> dataContext.showTermsAndConditionsPopup()}"
+            style="@style/Widget.App.TextViewLogin" />
+
+        <android.support.v7.widget.RecyclerView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/partnersListRow1"
+            android:name="com.fullybelly.views.activities.LoginActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:layoutManager="LinearLayoutManager"
+            android:layout_marginBottom="70dp"
+            tools:context=".views.activities.LoginActivity"
+            tools:listitem="@layout/fragment_partner_image" />
+
+        <android.support.v7.widget.RecyclerView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/partnersListRow2"
+            android:name="com.fullybelly.views.activities.LoginActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:layoutManager="LinearLayoutManager"
+            android:layout_marginBottom="20dp"
+            tools:context=".views.activities.LoginActivity"
+            tools:listitem="@layout/fragment_partner_image" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:background="@color/colorPrimaryDark"
+            android:visibility="@{dataContext.isLoading ? View.VISIBLE : View.GONE}">
+
+            <fragment
+                android:id="@+id/loaderFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.fullybelly.views.fragments.common.LoaderFragment"
+                android:tag="fragment_loader"
+                tools:layout="@layout/fragment_loader"
+                class="com.fullybelly.views.fragments.common.LoaderFragment" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</layout>

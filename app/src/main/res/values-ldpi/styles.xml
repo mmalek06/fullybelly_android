@@ -1,0 +1,59 @@
+<resources
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Widget.App.SearcherButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">@dimen/buttonsLeftRightPadding</item>
+        <item name="android:paddingRight">@dimen/buttonsLeftRightPadding</item>
+        <item name="android:textColor">@color/buttontextcolor</item>
+        <item name="android:textSize">12dp</item>
+        <item name="fontPath">fonts/Raleway-SemiBold.ttf</item>
+    </style>
+
+    <style name="Widget.App.ListTextViewRestaurantName" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/deepDarkVioletTitle</item>
+        <item name="fontPath">fonts/Raleway-Bold.ttf</item>
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="Widget.App.TextViewDistance" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/lightGray</item>
+        <item name="fontPath">fonts/Raleway-SemiBold.ttf</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="Widget.App.TextViewAvailableDishesCount" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="fontPath">fonts/Raleway-ExtraBold.ttf</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="Widget.App.TextViewPickupTime" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/violetGray</item>
+        <item name="fontPath">fonts/Raleway-SemiBold.ttf</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="Widget.App.TextViewPrice" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/orange</item>
+        <item name="fontPath">fonts/Raleway-ExtraBold.ttf</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="Widget.App.DetailTextViewOldPrice" parent="Widget.App.DetailTextViewDistrict">
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="Widget.App.DetailTextViewNewPrice" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="fontPath">fonts/Raleway-ExtraBold.ttf</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="Widget.AppDetailBuyButton" parent="Widget.App.SubmitButton">
+        <item name="android:textSize">20dp</item>
+    </style>
+
+</resources>

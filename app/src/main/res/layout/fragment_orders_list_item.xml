@@ -1,0 +1,102 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="order"
+            type="com.fullybelly.viewModels.fragments.OrdersListItemViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/defaultBigMargin"
+        android:layout_marginLeft="@dimen/defaultMargin"
+        android:layout_marginRight="@dimen/defaultMargin">
+
+        <TextView
+            android:id="@+id/orderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@{order.name}"
+            style="@style/Widget.App.OrderNameTextView" />
+
+        <LinearLayout
+            android:id="@+id/firstLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/orderName"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/dishesAmountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ordersListDishesAmount"
+                style="@style/Widget.App.OrdersListAndSettingsStdText" />
+
+            <TextView
+                android:id="@+id/dishesAmountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="@{order.dishesAmount}"
+                style="@style/Widget.App.OrdersListAccentText" />
+
+            <TextView
+                android:id="@+id/pickupTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="@string/ordersListPickup"
+                style="@style/Widget.App.OrdersListAndSettingsStdText" />
+
+            <TextView
+                android:id="@+id/pickupTimeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="@{order.pickupTime}"
+                style="@style/Widget.App.OrdersListAccentText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/firstLine"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/orderNumberText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ordersListNumber"
+                style="@style/Widget.App.OrdersListAndSettingsStdText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="@{order.number}"
+                style="@style/Widget.App.OrdersListBoldText" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/secondLine"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/defaultBigMargin"
+            android:background="@color/orange"/>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- general colors -->
+    <color name="colorPrimary">#3F3341</color>
+    <color name="colorPrimaryDark">#3F3341</color>
+    <color name="colorPrimaryLight">#948397</color>
+    <color name="deepDarkVioletTitle">#3B333D</color>
+    <color name="colorAccent">#00C8A5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dirtyWhite">#F4F4F4</color>
+    <color name="deepDarkViolet">#2A212B</color>
+    <color name="orange">#F87C4C</color>
+    <color name="darkOrange">#FF5B29</color>
+    <color name="cherry">#C40000</color>
+    <color name="darkGray">#928D93</color>
+    <color name="lightGray">#9C9C9C</color>
+    <color name="extraLightGray">#A7A7A7</color>
+    <color name="grayedWhite">#EDEDED</color>
+    <color name="violetGray">#645866</color>
+
+    <!-- control specific colors -->
+    <color name="deepDarkVioletToolbar">#433646</color>
+
+</resources>

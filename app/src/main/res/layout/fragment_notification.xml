@@ -1,0 +1,40 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/defaultMargin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/dialog"
+        tools:context=".views.fragments.common.NotificationFragment">
+
+        <TextView
+            android:id="@+id/notificationTextStd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/defaultMargin"
+            android:background="@drawable/border_bottom"
+            style="@style/Widget.App.TextViewAccent" />
+
+        <TextView
+            android:id="@+id/notificationTextWarn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/defaultMargin"
+            android:background="@drawable/border_bottom"
+            style="@style/Widget.App.TextViewWarningAccent" />
+
+        <TextView
+            android:id="@+id/notificationInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/defaultMargin"
+            style="@style/Widget.App.TextViewStandard" />
+
+    </LinearLayout>
+
+</FrameLayout>

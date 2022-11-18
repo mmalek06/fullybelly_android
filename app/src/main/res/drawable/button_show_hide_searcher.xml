@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:left="65dp" android:height="12dp" android:width="12dp">
+        <selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <item
+                android:drawable="@drawable/ic_open_searcher_ico"
+                android:state_checked="true" />
+            <item
+                android:drawable="@drawable/ic_close_searcher_ico"
+                android:state_checked="false" />
+
+        </selector>
+    </item>
+
+</layer-list>

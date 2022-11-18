@@ -1,0 +1,198 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable name="offer" type="com.fullybelly.viewModels.fragments.OffersListItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:onClick="@{() -> offer.navigateToDetails()}"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/border_bottom">
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="4dp">
+
+            <FrameLayout
+                android:id="@+id/restaurantLogoWrapper"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/restaurantLogo"
+                    android:layout_height="@dimen/searcherLogoHeight"
+                    android:layout_width="@dimen/searcherLogoWidth"
+                    android:paddingLeft="@dimen/defaultMargin"
+                    android:paddingBottom="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/restaurantLogo"
+                    style="@style/SearcherRestaurantLogoImageView" />
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_toRightOf="@+id/restaurantLogoWrapper">
+
+                <TextView
+                    android:id="@+id/searcherListMealDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="@{offer.mealDescription}"
+                    android:visibility="@{offer.hasMealDescription ? View.VISIBLE : View.GONE}"
+                    style="@style/Widget.App.ListTextViewRestaurantName" />
+
+                <TextView
+                    android:id="@+id/searcherListRestaurantName"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="4dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="@{offer.name}"
+                    android:layout_below="@+id/searcherListMealDescription"
+                    style="@style/Widget.App.TextViewDistance" />
+
+                <TextView
+                    android:id="@+id/searcherListRestaurantDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_below="@+id/searcherListRestaurantName"
+                    android:maxLines="1"
+                    android:text="@{offer.distance}"
+                    android:visibility="@{offer.hasDistance ? View.VISIBLE : View.GONE}"
+                    style="@style/Widget.App.TextViewDistance" />
+
+                <TextView
+                    android:id="@+id/searcherListRestaurantDistanceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="6dp"
+                    android:layout_below="@+id/searcherListRestaurantName"
+                    android:layout_toRightOf="@+id/searcherListRestaurantDistance"
+                    android:text="@string/away"
+                    android:visibility="@{offer.hasDistance ? View.VISIBLE : View.GONE}"
+                    style="@style/Widget.App.TextViewDistance" />
+
+                <TextView
+                    android:id="@+id/searcherListAvailableDishes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_below="@+id/searcherListRestaurantName"
+                    android:layout_toRightOf="@+id/searcherListRestaurantDistanceTitle"
+                    android:text="@{offer.availableDishes}"
+                    android:visibility="@{offer.isTodaysOffer ? View.VISIBLE : View.GONE}"
+                    style="@style/Widget.App.TextViewAvailableDishesCount" />
+
+                <TextView
+                    android:id="@+id/dishUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_below="@+id/searcherListRestaurantName"
+                    android:layout_toRightOf="@+id/searcherListAvailableDishes"
+                    android:paddingLeft="4dp"
+                    android:text="@string/dishUnit"
+                    android:visibility="@{offer.isTodaysOffer ? View.VISIBLE : View.INVISIBLE}"
+                    style="@style/Widget.App.TextViewDistance" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searcherListRestaurantName"
+                    android:layout_toRightOf="@+id/searcherListRestaurantDistanceTitle"
+                    android:text="@string/availableTomorrow"
+                    android:visibility="@{offer.isTodaysOffer ? View.GONE : View.VISIBLE}"
+                    style="@style/Widget.App.TextViewAvailableDishesCount" />
+
+                <TextView
+                    android:id="@+id/pickupFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searcherListRestaurantName"
+                    android:layout_toRightOf="@+id/dishUnit"
+                    android:layout_marginBottom="4dp"
+                    android:paddingLeft="6dp"
+                    android:text="@{offer.pickupFrom}"
+                    android:visibility="@{offer.isTodaysOffer ? View.VISIBLE : View.GONE}"
+                    style="@style/Widget.App.TextViewPickupTime" />
+
+                <TextView
+                    android:id="@+id/dash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searcherListRestaurantName"
+                    android:layout_toRightOf="@+id/pickupFrom"
+                    android:layout_marginBottom="4dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    android:text="-"
+                    android:visibility="@{offer.isTodaysOffer ? View.VISIBLE : View.GONE}"
+                    style="@style/Widget.App.TextViewPickupTime" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searcherListRestaurantName"
+                    android:layout_toRightOf="@+id/dash"
+                    android:layout_marginBottom="4dp"
+                    android:text="@{offer.pickupTo}"
+                    android:visibility="@{offer.isTodaysOffer ? View.VISIBLE : View.GONE}"
+                    style="@style/Widget.App.TextViewPickupTime" />
+
+                <TextView
+                    android:id="@+id/priceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searcherListMealDescription"
+                    android:layout_marginTop="35dp"
+                    android:text="@string/price"
+                    style="@style/Widget.App.TextViewPickupTime" />
+
+                <TextView
+                    android:id="@+id/priceOld"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searcherListMealDescription"
+                    android:layout_toRightOf="@+id/priceLabel"
+                    android:paddingLeft="6dp"
+                    android:layout_marginTop="35dp"
+                    android:text="@{offer.oldPrice}"
+                    android:visibility="@{offer.oldPrice != null ? View.VISIBLE : View.INVISIBLE}"
+                    style="@style/Widget.App.TextViewPickupTime" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searcherListMealDescription"
+                    android:layout_toRightOf="@+id/priceOld"
+                    android:paddingLeft="6dp"
+                    android:layout_marginTop="35dp"
+                    android:text="@{offer.price}"
+                    style="@style/Widget.App.TextViewPrice" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

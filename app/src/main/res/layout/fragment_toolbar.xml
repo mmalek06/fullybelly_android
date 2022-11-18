@@ -1,0 +1,214 @@
+<layout>
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="dataContext"
+            type="com.fullybelly.viewModels.fragments.TopToolbarViewModel" />
+    </data>
+
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="0dp"
+        android:paddingStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp"
+        android:background="@color/deepDarkVioletToolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/defaultMargin"
+                android:layout_marginStart="@dimen/defaultMargin"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/logo"
+                android:visibility="@{dataContext.offerDetailActive ? View.INVISIBLE : View.VISIBLE}" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/defaultMargin"
+                android:layout_marginStart="@dimen/defaultMargin"
+                android:visibility="@{dataContext.offerDetailActive ? View.VISIBLE : View.INVISIBLE}">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bottom_toolbar"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_fav_ico_light_active"
+                    android:onClick="@{() -> dataContext.removeFromFavorites()}"
+                    android:visibility="@{dataContext.isFavorite ? View.VISIBLE : View.INVISIBLE}" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bottom_toolbar"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_fav_ico_light"
+                    android:onClick="@{() -> dataContext.addToFavorites()}"
+                    android:visibility="@{dataContext.isFavorite ? View.INVISIBLE : View.VISIBLE}" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="58dp"
+                android:layout_marginStart="58dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bottom_toolbar"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
+                    android:paddingTop="7dp"
+                    android:paddingBottom="7dp"
+                    android:src="@drawable/ic_map_ico"
+                    android:onClick="@{() -> dataContext.navigateToMap()}"
+                    android:visibility="@{dataContext.offerDetailActive ? View.VISIBLE : View.INVISIBLE}" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="106dp"
+                android:layout_marginEnd="106dp"
+                android:onClick="@{() -> dataContext.navigateToOffers()}">
+
+                <ImageView
+                    android:id="@+id/offersListIcoInactive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/offers_list_ico"
+                    android:visibility="@{dataContext.listActive ? View.INVISIBLE : View.VISIBLE}" />
+
+                <ImageView
+                    android:id="@+id/offersListIcoActive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/offers_list_ico_active"
+                    android:visibility="@{dataContext.listActive ? View.VISIBLE : View.INVISIBLE}" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="58dp"
+                android:layout_marginEnd="58dp"
+                android:onClick="@{() -> dataContext.navigateToOrders()}">
+
+                <ImageView
+                    android:id="@+id/noNewOrdersIco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/orders_list_ico"
+                    android:visibility="@{dataContext.hasNewOrder ? View.INVISIBLE : View.VISIBLE}" />
+
+                <ImageView
+                    android:id="@+id/noNewOrdersIco2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/orders_list_ico_active"
+                    android:visibility="@{!dataContext.hasNewOrder &amp;&amp; dataContext.ordersActive ? View.VISIBLE : View.INVISIBLE}" />
+
+                <ImageView
+                    android:id="@+id/newOrdersIco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/orders_list_active_ico"
+                    android:visibility="@{dataContext.hasNewOrder ? View.VISIBLE : View.INVISIBLE}" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/defaultMargin"
+                android:layout_marginEnd="@dimen/defaultMargin"
+                android:onClick="@{() -> dataContext.navigateToSettings()}">
+
+                <ImageView
+                    android:id="@+id/userSettingsInactive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/tool_ico"
+                    android:visibility="@{dataContext.settingsActive ? View.INVISIBLE : View.VISIBLE}" />
+
+                <ImageView
+                    android:id="@+id/userSettingsActive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/tool_ico_active"
+                    android:visibility="@{dataContext.settingsActive ? View.VISIBLE : View.INVISIBLE}" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+</layout>

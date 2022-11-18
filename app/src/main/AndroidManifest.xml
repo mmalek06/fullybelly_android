@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fullybelly">
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="23" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".FullyBellyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="FullyBelly"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/fbAppId" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/geoKey" />
+        <meta-data
+            android:name="com.fullybelly.P24_REQ_CODE"
+            android:value="25" />
+        <meta-data
+            android:name="com.fullybelly.PAYPAL_REQ_CODE"
+            android:value="1025" />
+        <meta-data
+            android:name="com.fullybelly.P24_URL_STATUS"
+            android:value="https://api.fullybelly.pl/v1/payments/confirm-p24/" />
+        <meta-data
+            android:name="com.fullybelly.API_SCHEME"
+            android:value="https" />
+        <meta-data
+            android:name="com.fullybelly.API_ROOT"
+            android:value="api.fullybelly.pl" />
+        <meta-data
+            android:name="com.fullybelly.API_SCHEME_STATIC"
+            android:value="https" />
+        <meta-data
+            android:name="com.fullybelly.API_ROOT_STATIC"
+            android:value="static.fullybelly.pl" />
+        <meta-data
+            android:name="com.fullybelly.PAYMENT_TEST_MODE_ENABLED"
+            android:value="false" />
+
+        <activity
+            android:name=".views.activities.LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".views.activities.OffersListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activities.OfferDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activities.OfferMapActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activities.OrdersActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activities.SettingsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="pl.dialcom24.p24lib.TransferActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PaymentTheme" />
+        <activity
+            android:name="pl.dialcom24.p24lib.bank.BankListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PaymentTheme" />
+
+        <service
+            android:name=".services.background.LocationService"
+            android:exported="false" />
+        <service
+            android:name=".services.background.OrderMonitorService"
+            android:exported="false" />
+
+        <activity
+            android:name=".views.activities.IntroActivity"
+            android:label="@string/title_activity_intro"
+            android:theme="@style/AppTheme" />
+    </application>
+
+</manifest>

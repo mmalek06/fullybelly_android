@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="parent"
+            type="com.fullybelly.views.activities.OffersListActivity" />
+
+        <variable
+            name="dataContext"
+            type="com.fullybelly.viewModels.activities.OffersListViewModel" />
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                tools:context=".views.activities.OffersListActivity">
+
+                <android.support.design.widget.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_behavior="com.fullybelly.views.utils.FlingBehavior">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                        <RelativeLayout
+                            android:id="@+id/searcher"
+                            android:layout_below="@+id/toolbar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/searcherBackground"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:src="@drawable/searcher_bg"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignBottom="@+id/searcherControls"
+                                android:scaleType="centerCrop"
+                                android:contentDescription="@string/searcherBackgroundImage" />
+
+                            <LinearLayout
+                                android:id="@+id/searcherControls"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/defaultMargin"
+                                android:paddingLeft="@dimen/defaultMargin"
+                                android:paddingRight="@dimen/defaultMargin"
+                                android:paddingBottom="22dp"
+                                android:background="@drawable/layout_border"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:id="@+id/searchTermBox"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="@dimen/editTextHeight"
+                                    android:drawableRight="@drawable/ic_pencil_ico"
+                                    android:drawablePadding="4dp"
+                                    android:hint="@{dataContext.hintText}"
+                                    android:text="@={dataContext.searchTerm}"
+                                    android:layout_marginLeft="-4dp"
+                                    android:layout_marginRight="-4dp"
+                                    android:maxLines="1"
+                                    android:minLines="1"
+                                    android:inputType="textPostalAddress"
+                                    android:imeOptions="actionDone"
+                                    android:onEditorAction="@{parent::onEditorAction}"
+                                    style="@style/Widget.App.EditText" />
+
+                                <!-- basic search icons -->
+                                <LinearLayout
+                                    android:id="@+id/searcherBasicIcons"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/defaultMargin"
+                                    android:orientation="horizontal">
+
+                                    <ToggleButton
+                                        android:layout_weight="4"
+                                        android:layout_height="wrap_content"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginRight="@dimen/searcherButtonsMargins"
+                                        android:layout_marginBottom="@dimen/searcherButtonsMargins"
+                                        android:background="@drawable/toggle_button_transparent_bordered"
+                                        android:textOn="@string/favButtonText"
+                                        android:textOff="@string/favButtonText"
+                                        android:checked="@={dataContext.favorite}"
+                                        android:button="@drawable/button_favorites"
+                                        style="@style/Widget.App.SearcherButtonWithIcon" />
+
+                                    <ToggleButton
+                                        android:layout_weight="4"
+                                        android:layout_height="wrap_content"
+                                        android:layout_width="wrap_content"
+                                        android:background="@drawable/toggle_button_transparent_bordered"
+                                        android:button="@drawable/button_available"
+                                        android:textOn="@string/availableButtonText"
+                                        android:textOff="@string/availableButtonText"
+                                        android:checked="@={dataContext.onlyAvailable}"
+                                        style="@style/Widget.App.SearcherButtonWithIcon" />
+
+                                </LinearLayout>
+
+                                <!-- advanced search icons -->
+                                <LinearLayout
+                                    android:id="@+id/advancedSearcherContainer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <ToggleButton
+                                            android:layout_weight="8"
+                                            android:layout_height="wrap_content"
+                                            android:layout_width="wrap_content"
+                                            android:layout_marginRight="@dimen/searcherButtonsMargins"
+                                            android:background="@drawable/toggle_button_transparent_bordered"
+                                            android:button="@drawable/button_pickup_time"
+                                            android:textOn="@string/pickupTimeButtonText"
+                                            android:textOff="@string/pickupTimeButtonText"
+                                            android:checked="@={dataContext.pickupTime}"
+                                            style="@style/Widget.App.SearcherButtonWithIcon" />
+
+                                        <ToggleButton
+                                            android:layout_weight="8"
+                                            android:layout_height="wrap_content"
+                                            android:layout_width="wrap_content"
+                                            android:layout_marginRight="@dimen/searcherButtonsMargins"
+                                            android:layout_marginBottom="@dimen/searcherButtonsMargins"
+                                            android:background="@drawable/toggle_button_transparent_bordered"
+                                            android:textOn="@string/closestButtonText"
+                                            android:textOff="@string/closestButtonText"
+                                            android:checked="@={dataContext.closest}"
+                                            style="@style/Widget.App.SearcherButton" />
+
+                                        <ToggleButton
+                                            android:layout_weight="8"
+                                            android:layout_height="wrap_content"
+                                            android:layout_width="wrap_content"
+                                            android:layout_marginBottom="@dimen/searcherButtonsMargins"
+                                            android:background="@drawable/toggle_button_transparent_bordered"
+                                            android:textOn="@string/cheapestButtonText"
+                                            android:textOff="@string/cheapestButtonText"
+                                            android:checked="@={dataContext.cheapest}"
+                                            style="@style/Widget.App.SearcherButton" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/searcherAdvancedDistance"
+                                        android:layout_marginTop="@dimen/defaultMargin"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <SeekBar
+                                            android:id="@+id/distanceBar"
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="wrap_content"
+                                            android:progressDrawable="@drawable/seekbar_line"
+                                            android:thumb="@drawable/seekbar_thumb"
+                                            android:maxHeight="5dp"
+                                            android:minHeight="5dp"
+                                            android:max="@{dataContext.maxDistance}"
+                                            android:progress="@={dataContext.searchDist}" />
+
+                                        <TextView
+                                            android:id="@+id/distanceBarTitle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="-2dp"
+                                            android:text="@{dataContext.distanceValue}"
+                                            style="@style/Widget.App.TextViewAccent" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/defaultMargin">
+
+                                    <ToggleButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_centerInParent="true"
+                                        android:textOff="@string/advancedSearchText"
+                                        android:textOn="@string/simpleSearchText"
+                                        android:background="@drawable/toggle_button_stateless"
+                                        android:onClick="@{() -> parent.animateSearcher()}"
+                                        style="@style/Widget.App.SearcherOptionsButton" />
+
+                                    <Button
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:text="@string/searchButtonText"
+                                        android:background="@drawable/button_submit"
+                                        android:onClick="@{() -> parent.requestSearch()}"
+                                        style="@style/Widget.App.SearcherMainButton" />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </android.support.design.widget.AppBarLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searcher"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{dataContext.showMessages ? View.GONE : View.VISIBLE}">
+
+                        <android.support.v7.widget.RecyclerView
+                            xmlns:android="http://schemas.android.com/apk/res/android"
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            xmlns:tools="http://schemas.android.com/tools"
+                            android:id="@+id/offersList"
+                            android:name="com.fullybelly.views.activities.OffersListActivity"
+                            android:layout_below="@+id/searcher"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layoutManager="LinearLayoutManager"
+                            tools:listitem="@layout/fragment_offers_list_item" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{dataContext.showMessages ? View.VISIBLE : View.GONE}"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/defaultMargin"
+                            android:background="@drawable/border_bottom"
+                            android:text="@string/noRestaurantsInfo"
+                            android:visibility="@{dataContext.showNoOffersMessage ? View.VISIBLE : View.GONE}"
+                            style="@style/Widget.App.TextViewAccent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/defaultMargin"
+                            android:text="@string/tryDifferentCriteria"
+                            android:visibility="@{dataContext.showNoOffersMessage ? View.VISIBLE : View.GONE}"
+                            style="@style/Widget.App.TextViewStandard" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/defaultMargin"
+                            android:background="@drawable/border_bottom"
+                            android:text="@string/locationDown"
+                            android:visibility="@{dataContext.showLocationDisabledMessage ? View.VISIBLE : View.GONE}"
+                            style="@style/Widget.App.TextViewAccent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/defaultMargin"
+                            android:text="@string/locationDownExplanation"
+                            android:visibility="@{dataContext.showLocationDisabledMessage ? View.VISIBLE : View.GONE}"
+                            style="@style/Widget.App.TextViewStandard" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </android.support.design.widget.CoordinatorLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <fragment
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:name="com.fullybelly.views.fragments.common.ToolbarFragment"
+                    tools:layout="@layout/fragment_toolbar"
+                    class="com.fullybelly.views.fragments.common.ToolbarFragment" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:background="@color/colorPrimaryDark"
+            android:visibility="@{dataContext.loading ? View.VISIBLE : View.GONE}">
+
+            <fragment
+                android:id="@+id/loaderFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.fullybelly.views.fragments.common.LoaderFragment"
+                android:tag="fragment_loader"
+                tools:layout="@layout/fragment_loader"
+                class="com.fullybelly.views.fragments.common.LoaderFragment" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,150 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="dataContext"
+            type="com.fullybelly.viewModels.fragments.PurchaseDetailsViewModel" />
+        <variable
+            name="parent"
+            type="com.fullybelly.views.fragments.offerDetailActivity.PurchaseDetailsDialogFragment" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/defaultMargin"
+        android:paddingRight="@dimen/defaultMargin">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:paddingTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chooseAmount"
+                    style="@style/Widget.App.DialogsTitleWeak" />
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialogCentralContent"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:layout_marginTop="80dp"
+                android:background="@color/dirtyWhite">
+
+                <TextView
+                    android:id="@+id/purchaseTotalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="46dp"
+                    android:text="@{dataContext.totalPrice}"
+                    style="@style/Widget.App.PurchaseTotalPrice" />
+
+                <TextView
+                    android:id="@+id/purchasePickupTimes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/purchaseTotalPrice"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/pickupTimesTextLong"
+                    style="@style/Widget.App.DialogsTitleWeak" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/purchasePickupTimes"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{dataContext.pickupFrom}"
+                        style="@style/Widget.App.PurchasePickupTimes" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:text="@{dataContext.pickupTo}"
+                        style="@style/Widget.App.PurchasePickupTimes" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true">
+
+                <Button
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/button_filled"
+                    android:text="-"
+                    android:onClick="@{() -> dataContext.decreaseAmount()}"
+                    style="@style/Widget.App.PurchaseIncDecButton" />
+
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/edittext_white_rounded">
+
+                    <EditText
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_horizontal"
+                        android:maxLines="1"
+                        android:inputType="number"
+                        android:text="@={dataContext.amount}"
+                        style="@style/Widget.App.PurchaseAmountEditText" />
+
+                </FrameLayout>
+
+                <Button
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/button_filled"
+                    android:text="+"
+                    android:onClick="@{() -> dataContext.increaseAmount()}"
+                    style="@style/Widget.App.PurchaseIncDecButton" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/dialogCentralContent"
+                android:text="@{dataContext.buttonText}"
+                android:background="@drawable/button_submit_filled"
+                android:onClick="@{() -> parent.nextStep()}"
+                style="@style/Widget.App.SubmitButton" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</layout>

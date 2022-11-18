@@ -1,0 +1,127 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="dataContext"
+            type="com.fullybelly.viewModels.fragments.PaymentMethodChooserViewModel" />
+        <variable
+            name="parent"
+            type="com.fullybelly.views.fragments.offerDetailActivity.PaymentMethodChooserFragment" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/defaultMargin"
+        android:paddingRight="@dimen/defaultMargin">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/defaultMargin"
+            android:background="@drawable/dialog"
+            android:visibility="@{dataContext.showDialogContents ? View.VISIBLE : View.INVISIBLE}">
+
+            <FrameLayout
+                android:id="@+id/paymentMethodTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choosePaymentMethod"
+                    style="@style/Widget.App.DialogsTitleMedium" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/paymentMethods"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/paymentMethodTitle">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/defaultMargin"
+                        android:layout_marginLeft="@dimen/defaultMargin"
+                        android:layout_marginRight="@dimen/defaultMargin"
+                        android:checked="@={dataContext.creditCardSelected}"
+                        android:text="@string/payWithCreditCard" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/defaultMargin"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="@dimen/defaultMargin"
+                        android:layout_marginRight="@dimen/defaultMargin"
+                        android:layout_height="wrap_content"
+                        android:checked="@={dataContext.bankTransferSelected}"
+                        android:text="@string/payWithBankTransfer" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="@dimen/defaultMargin"
+                    android:layout_marginLeft="@dimen/defaultMargin"
+                    android:layout_marginRight="@dimen/defaultMargin"
+                    android:visibility="@{dataContext.paymentMethodValid ? View.GONE : View.VISIBLE}"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@{dataContext.paymentMethodValidation}"
+                    android:textColor="@color/cherry"/>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/rememberChoice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/defaultMargin"
+                android:paddingBottom="@dimen/defaultMargin"
+                android:layout_below="@+id/paymentMethods"
+                android:background="@color/dirtyWhite">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/defaultMargin"
+                    android:layout_marginRight="@dimen/defaultMargin"
+                    android:checked="@={dataContext.rememberChoice}"
+                    android:text="@string/rememberChoice" />
+
+            </FrameLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/rememberChoice"
+                android:text="@string/buttonBuyText"
+                android:background="@drawable/button_submit_filled"
+                android:onClick="@{() -> parent.nextStep()}"
+                style="@style/Widget.App.SubmitButton" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</layout>

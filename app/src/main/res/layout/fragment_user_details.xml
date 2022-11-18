@@ -1,0 +1,86 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataContext"
+            type="com.fullybelly.viewModels.fragments.UserDetailsViewModel" />
+        <variable
+            name="parent"
+            type="com.fullybelly.views.fragments.offerDetailActivity.UserDetailsFragment" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/defaultMargin"
+        android:paddingRight="@dimen/defaultMargin">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/defaultMargin"
+            android:background="@drawable/dialog">
+
+            <FrameLayout
+                android:id="@+id/emailAddressInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/defaultMargin"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enterEmailAddress"
+                    style="@style/Widget.App.DialogsTitleWeak" />
+
+            </FrameLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/emailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="@dimen/defaultMargin"
+                android:paddingRight="@dimen/defaultMargin"
+                android:layout_below="@+id/emailAddressInfo"
+                android:layout_centerHorizontal="true"
+                android:background="@color/dirtyWhite"
+                tools:errorEnabled="true"
+                app:hintEnabled="false"
+                app:errorText="@{dataContext.emailValidation}">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_height="60dp"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:inputType="textEmailAddress"
+                    android:text="@={dataContext.emailAddress}"
+                    style="@style/Widget.App.UserDetailsEditText" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/emailAddress"
+                android:text="@{dataContext.buttonText}"
+                android:background="@drawable/button_submit_filled"
+                android:onClick="@{() -> parent.nextStep()}"
+                style="@style/Widget.App.SubmitButton" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</layout>
